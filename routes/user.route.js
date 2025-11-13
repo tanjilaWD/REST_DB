@@ -4,13 +4,15 @@ const {
     getAllUsers,
     createUser,
     getOneUser,
-    deleteUser
+    deleteUser,
+    updateUser
      } = require('../controllers/user.controller');
 
 
 router.get("/", getAllUsers);
 router.get("/:id", getOneUser);
 router.delete("/:id", deleteUser);
+router.patch("/:id", updateUser),
 router.post("/", createUser);
 
 
