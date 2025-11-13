@@ -38,10 +38,13 @@ const updateUser = (req,res)=>{
     });
 };
 
-const deleteUser = (req,res)=>{
-    res.status(200).json({
-        message: "user is deleted"
-    });
+const deleteUser = async (req,res)=>{
+   try{
+     await User.deleteOne({id: req.params.id})
+    res.status(200).json({message: "user is deleted"});
+   }catch(error){
+     res.status(500).send(error.message);
+   }
 };
 
 
